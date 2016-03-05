@@ -15,8 +15,12 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'todoApp/js/*.js',
-      'todoApp/test/*.js',
+      'todoApp/bower_components/angular/angular.min.js',
+      'todoApp/bower_components/angular-mocks/angular-mocks.js',
+      'todoApp/js/app.js',
+      'todoApp/js/todoService.js',
+      'todoApp/js/todoController.js',
+      'todoApp/test/*Spec.js',
     ],
 
 
