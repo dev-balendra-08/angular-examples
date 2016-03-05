@@ -1,0 +1,12 @@
+.tasks {
+  margin-top: 10px;
+}
+.app {
+  margin-top: 50px;
+}
+.strike {
+  text-decoration: line-through;
+}
+li {
+  list-style: none;
+}
