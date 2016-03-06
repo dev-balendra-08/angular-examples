@@ -38,7 +38,6 @@ describe('TodoApp', function () {
   })
 
   describe('Todo controller', function () {
-    var scope
     var ctrl
 
     // Inject scope and controller before each test.

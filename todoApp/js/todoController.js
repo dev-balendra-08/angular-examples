@@ -20,4 +20,5 @@ app.controller('todoCtrl', ['$scope', 'todoService', function($scope, todoServic
     $scope.tasks = todoService.add(task)
     $scope.name = ""
   }
+  $scope.test = ""
 }])
