@@ -10,33 +10,34 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: "/",
       templateUrl: "partials/state1.html",
-      controller: "state1Ctrl"
+      controller: "state1Ctrl",
+      resolve: {
+        testResolve: function ($q, $timeout) {
+          var deferred = $q.defer();
+          $timeout(function () {
+            deferred.resolve('Hello!');
+          }, 0);
+          return deferred.promise;
+        }
+      }
     })
     .state('about', {
       url: "/state2",
       templateUrl: "partials/state2.html",
-      controller: function($scope, test) {
-        $scope.test = test
-      },
-      resolve: {
-        test: function() {
-          return "Hello world"
-        }
+      controller: function ($scope) {
+        $scope.test = "test"
       }
     })
 })
 
-app.controller('state1Ctrl', function ($scope) {
-  $scope.test = "state 1"
+app.controller('state1Ctrl', function ($scope, testResolve, $interval) {
+  $scope.test = testResolve
   $scope.show = true
 
-  $scope.click = function(message) {
-    alert(message)
+  $scope.click = function () {
+    $scope.countDown = 60;
+    $interval(function () {
+      $scope.countDown--
+    }, 1000, 60);
   }
-
-  $scope.list = [
-    {name: "Eminem", age:30},
-    {name: "2pac", age:30},
-    {name: "Snoop dog", age: "stoned"}
-  ]
 })
