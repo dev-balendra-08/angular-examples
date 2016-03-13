@@ -3,6 +3,7 @@ describe('AngularJS session', function () {
     expect(true).toBe(true)
   })
   it('should compile directives', inject(function($rootScope, $compile) {
+
     $rootScope.name = "Thanos"
     var expression = "<div> Hello {{name}}</div>"
 
